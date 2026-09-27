@@ -15,28 +15,25 @@ function ProjectCard({
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-10% 0px' });
 
-  const isLarge = index % 3 === 0;
-
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.85, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className={`group cursor-pointer ${isLarge ? 'md:col-span-2' : ''}`}
+      className="group cursor-pointer"
     >
       {/* Image */}
       <div className="relative overflow-hidden rounded-2xl bg-cream mb-6">
         <div
-          className="relative overflow-hidden"
-          style={{ aspectRatio: isLarge ? '16/9' : '4/5' }}
+          className="relative overflow-hidden aspect-[4/3]"
         >
           <Image
             src={project.images[0]}
             alt={project.title}
             fill
             className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-            sizes={isLarge ? '(max-width: 768px) 100vw, 66vw' : '(max-width: 768px) 100vw, 33vw'}
+            sizes="(max-width: 768px) 100vw, 33vw"
           />
 
           {/* Hover overlay */}

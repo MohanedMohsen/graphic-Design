@@ -17,21 +17,6 @@ interface WorkItemProps {
 }
 
 function WorkItem({ image, index }: WorkItemProps) {
-  // Determine height class based on size and aspect
-  const heightClass =
-    image.size === 'large' && image.aspect === 'portrait'
-      ? 'row-span-2'
-      : image.size === 'large' && image.aspect === 'landscape'
-      ? ''
-      : '';
-
-  const aspectRatio =
-    image.aspect === 'landscape'
-      ? 'aspect-[4/3]'
-      : image.aspect === 'portrait'
-      ? 'aspect-[3/4]'
-      : 'aspect-square';
-
   const categoryLabels: Record<string, string> = {
     branding: 'Brand Identity',
     editorial: 'Editorial',
@@ -43,7 +28,7 @@ function WorkItem({ image, index }: WorkItemProps) {
 
   return (
     <div
-      className={`work-item rounded-2xl overflow-hidden ${aspectRatio} ${heightClass}`}
+      className="work-item rounded-2xl overflow-hidden aspect-[4/3] relative w-full"
       data-work-item
     >
       <Image

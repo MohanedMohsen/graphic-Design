@@ -30,8 +30,7 @@ export default function CallToAction() {
           {[...STRIP_IMAGES, ...STRIP_IMAGES].map((img, i) => (
             <div
               key={`${img.filename}-${i}`}
-              className="relative w-48 md:w-64 flex-shrink-0 rounded-xl overflow-hidden"
-              style={{ aspectRatio: '3/4' }}
+              className="relative w-48 md:w-64 flex-shrink-0 rounded-xl overflow-hidden aspect-[4/3]"
             >
               <Image
                 src={img.src}
